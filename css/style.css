@@ -10,9 +10,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Prevent scrolling if background covers everything */
+    overflow: hidden;
+    /* Prevent scrolling if background covers everything */
     color: white;
-    background-color: #222; /* Fallback */
+    background-color: #222;
+    /* Fallback */
 }
 
 /* Background Image Handling */
@@ -22,10 +24,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop'); /* Example todo/desk background */
+    background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2072&auto=format&fit=crop');
+    /* Example todo/desk background */
     background-size: cover;
     background-position: center;
-    filter: brightness(0.4); /* Darken bg for readability */
+    filter: brightness(0.4);
+    /* Darken bg for readability */
     z-index: -1;
 }
 
@@ -33,7 +37,8 @@ body {
     width: 90%;
     max-width: 800px;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Semi-transparent black */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
@@ -72,7 +77,18 @@ body {
 }
 
 #submit-btn {
-    background-color: green; /* Assuming generic button style, user said right side Submit button */
+    background-color: green;
+    /* Assuming generic button style, user said right side Submit button */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+#update-btn {
+    background-color: orange;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -94,7 +110,8 @@ table {
     color: white;
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: center;
     border: 1px solid green;
@@ -131,12 +148,14 @@ th {
 
 .up-btn {
     background-color: skyblue;
-    color: black; /* Skyblue text is usually better with black */
+    color: black;
+    /* Skyblue text is usually better with black */
 }
 
 .down-btn {
     background-color: black;
-    border: 1px solid white; /* Add border to make it visible against black bg */
+    border: 1px solid white;
+    /* Add border to make it visible against black bg */
 }
 
 /* Responsive */
@@ -144,7 +163,7 @@ th {
     .header-section {
         flex-direction: column;
     }
-    
+
     #task-input {
         width: 100%;
     }
