@@ -12,7 +12,19 @@ const renderTodos = (items) => {
 const createTodoElement = (todo) => {
   const li = document.createElement("li");
   li.dataset.id = todo.id;
-  li.innerHTML = `${todo.task} (${todo.date}) <button class="delete">X</button>`;
+
+  li.innerHTML = `
+    <div>
+      <strong>${todo.task}</strong><br/>
+      <small>Created: ${todo.createdAt}</small><br/>
+      <small>Updated: ${todo.updatedAt}</small>
+    </div>
+    <div>
+      <button class="edit">Edit</button>
+      <button class="delete">X</button>
+    </div>
+  `;
+
   list.appendChild(li);
 };
 
@@ -29,12 +41,26 @@ form.addEventListener("submit", (e) => {
 });
 
 list.addEventListener("click", (e) => {
+  const li = e.target.closest("li");
+  const id = Number(li.dataset.id);
+
   if (e.target.classList.contains("delete")) {
-    const id = Number(e.target.parentElement.dataset.id);
-    todos = todos.filter((todo) => todo.id !== id);
-    Storage.saveTodos(todos);
-    renderTodos(todos);
+    todos = todos.filter((t) => t.id !== id);
   }
+
+  if (e.target.classList.contains("edit")) {
+    const newTask = prompt("Update task");
+    if (newTask) {
+      todos = todos.map((t) =>
+        t.id === id
+          ? { ...t, task: newTask, updatedAt: new Date().toLocaleString() }
+          : t,
+      );
+    }
+  }
+
+  Storage.saveTodos(todos);
+  renderTodos(todos);
 });
 
 clearBtn.addEventListener("click", () => {

@@ -1,7 +1,9 @@
 class Todo {
-  constructor(task, date) {
+  constructor(task) {
+    const now = new Date().toLocaleString();
     this.id = Date.now();
     this.task = task;
-    this.date = date;
+    this.createdAt = now;
+    this.updatedAt = now;
   }
 }
